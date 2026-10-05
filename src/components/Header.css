@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 380px;
+    min-height: 220px;
+    margin: 0 auto;
+    padding: 22px 16px 18px;
+    box-sizing: border-box;
+    background-color: #041833;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right center;
+    color: #ffffff;
+    text-align: left;
+}
+
+.header-parrot {
+    width: 96px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.header-copy h1 {
+    margin: 0;
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 43.42px;
+    line-height: 150%;
+    letter-spacing: 0;
+    color: #32CD32;
+}
+
+.header-copy p {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 0;
+    color: #ffffff;
+}
