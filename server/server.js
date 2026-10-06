@@ -1,8 +1,13 @@
 import "dotenv/config"
 import express from "express"
 import OpenAI from "openai"
+import path from "path"
+import { fileURLToPath } from "url"
 
 const app = express()
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const distPath = path.join(__dirname, "..", "dist")
 
 app.use(express.json())
 
@@ -39,7 +44,13 @@ app.post("/api/translate", async (req,res) =>{
       }
 
 })
-
-app.listen(3000, () => {
-    console.log(`Server is running on http://localhost:${3000}`);
-  });
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(distPath))
+    app.get(/.*/, (req, res) => {
+      res.sendFile(path.join(distPath, "index.html"))
+    })
+  }
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+  })
